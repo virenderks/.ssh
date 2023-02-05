@@ -1,0 +1,44 @@
+[2023-02-05T09:10:23.725Z] info  code-server 4.7.0 7f108c61ab670ccaae4cfde5de2909c003db1ce8
+[2023-02-05T09:10:23.727Z] info  Using user-data-dir ~/data
+[2023-02-05T09:10:23.744Z] info  Using config file ~/.config/code-server/config.yaml
+[2023-02-05T09:10:23.744Z] info  HTTP server listening on http://0.0.0.0/ 
+[2023-02-05T09:10:23.744Z] info    - Authentication is enabled
+[2023-02-05T09:10:23.744Z] info      - Using password from $PASSWORD
+[2023-02-05T09:10:23.744Z] info    - Not serving HTTPS 
+[14:41:23] Extension host agent started.
+[14:41:26] [172.18.0.2][d2b4c460][ManagementConnection] New connection established.
+[14:41:28] [172.18.0.2][53806c61][ExtensionHostConnection] New connection established.
+[14:41:28] [172.18.0.2][53806c61][ExtensionHostConnection] <225> Launched Extension Host Process.
+[14:43:03] [172.18.0.2][d2b4c460][ManagementConnection] The client has disconnected gracefully, so the connection will be disposed.
+[14:43:03] [172.18.0.2][53806c61][ExtensionHostConnection] <225> Extension Host Process exited with code: 0, signal: null.
+[14:43:05] [172.18.0.2][91e944ae][ManagementConnection] New connection established.
+[14:43:06] [172.18.0.2][615693c2][ExtensionHostConnection] New connection established.
+[14:43:06] [172.18.0.2][615693c2][ExtensionHostConnection] <272> Launched Extension Host Process.
+[14:46:03] Getting Manifest... ecmel.vscode-html-css
+[14:46:05] Installing extension: ecmel.vscode-html-css
+[14:46:07] Downloaded extension: ecmel.vscode-html-css /config/data/CachedExtensionVSIXs/ecmel.vscode-html-css-1.13.1-universal
+[14:46:07] Extracted extension to /config/extensions/.b16e7ba9-6cd9-4272-b5b8-a141b4cc91e1: ecmel.vscode-html-css
+[14:46:07] Renamed to /config/extensions/ecmel.vscode-html-css-1.13.1-universal
+[14:46:07] Extracting completed. ecmel.vscode-html-css
+[14:46:07] Extension installed successfully: ecmel.vscode-html-css
+[14:46:13] Getting Manifest... html-validate.vscode-html-validate
+[14:46:13] Getting Manifest... abusaidm.html-snippets
+[14:46:14] Installing extension: html-validate.vscode-html-validate
+[14:46:14] Installing extension: abusaidm.html-snippets
+[14:46:16] Downloaded extension: abusaidm.html-snippets /config/data/CachedExtensionVSIXs/abusaidm.html-snippets-0.2.1-universal
+[14:46:16] Extracted extension to /config/extensions/.da7a4a99-b062-48db-9f98-7b466660ccdc: abusaidm.html-snippets
+[14:46:16] Renamed to /config/extensions/abusaidm.html-snippets-0.2.1-universal
+[14:46:16] Extracting completed. abusaidm.html-snippets
+[14:46:16] Extension installed successfully: abusaidm.html-snippets
+[14:46:16] Downloaded extension: html-validate.vscode-html-validate /config/data/CachedExtensionVSIXs/html-validate.vscode-html-validate-2.6.0-universal
+[14:46:17] Extracted extension to /config/extensions/.ec19883b-abd8-46fb-896e-c173cda2c368: html-validate.vscode-html-validate
+[14:46:17] Renamed to /config/extensions/html-validate.vscode-html-validate-2.6.0-universal
+[14:46:17] Extracting completed. html-validate.vscode-html-validate
+[14:46:17] Extension installed successfully: html-validate.vscode-html-validate
+[14:46:26] Getting Manifest... anteprimorac.html-end-tag-labels
+[14:46:27] Installing extension: anteprimorac.html-end-tag-labels
+[14:46:30] Downloaded extension: anteprimorac.html-end-tag-labels /config/data/CachedExtensionVSIXs/anteprimorac.html-end-tag-labels-0.10.0-universal
+[14:46:31] Extracted extension to /config/extensions/.53e24eb5-9d34-4e52-96d9-11289672efab: anteprimorac.html-end-tag-labels
+[14:46:31] Renamed to /config/extensions/anteprimorac.html-end-tag-labels-0.10.0-universal
+[14:46:31] Extracting completed. anteprimorac.html-end-tag-labels
+[14:46:31] Extension installed successfully: anteprimorac.html-end-tag-labels
