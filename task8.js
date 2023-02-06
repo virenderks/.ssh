@@ -1,4 +1,4 @@
-<
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,3 +43,48 @@
 
 </body>
 </html>
+
+<div id="item-lister">
+  <h3>Item Lister</h3>
+  <ul id="item-list">
+    <li id="item-template" style="display:none;">
+      <span class="item-text"></span>
+      <button class="delete-btn">Delete</button>
+      <button class="edit-btn">Edit</button>
+    </li>
+  </ul>
+  <input type="text" id="item-input">
+  <button id="add-item-btn">Add Item</button>
+</div>
+<script>
+var itemInput = document.querySelector("#item-input");
+var addItemBtn = document.querySelector("#add-item-btn");
+var itemList = document.querySelector("#item-list");
+var itemTemplate = document.querySelector("#item-template");
+
+addItemBtn.addEventListener("click", function() {
+  var itemText = itemInput.value;
+  if (!itemText) {
+    return;
+  }
+  var newItem = itemTemplate.cloneNode(true);
+  newItem.id = "";
+  newItem.style.display = "block";
+  newItem.querySelector(".item-text").textContent = itemText;
+  var deleteBtn = newItem.querySelector(".delete-btn");
+  deleteBtn.addEventListener("click", function() {
+    itemList.removeChild(newItem);
+  });
+  itemList.appendChild(newItem);
+  itemInput.value = "";
+});
+
+
+
+<script src="main.js"></script>
+
+
+</body>
+
+</html>
+
