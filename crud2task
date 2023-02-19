@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display User Details</title>
+  </head>
+  <body>
+    <div id="user-details"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        axios.get("https://crudcrud.com/api/ca7ca9006bf1486b877ec3b5fb415327/employeeData")
+          .then(response => response.json())
+          .then(data => {
+            const userDetails = document.getElementById("user-details");
+            userDetails.innerHTML = `
+              <h1>User Details</h1>
+              <p>Name: ${data.name}</p>
+              <p>Email: ${data.email}</p>
+              <p>Age: ${data.age}</p>
+            `;
+          })
+          .catch(error => console.error(error));
+      });
+    </script>
+  </body>
+</html>
