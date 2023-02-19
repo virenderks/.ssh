@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display and Delete User Details</title>
+  </head>
+  <body>
+    <div id="user-details"></div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const getUserDetails = () => {
+          axios.get(""https://crudcrud.com/api/ca7ca9006bf1486b877ec3b5fb415327/employeeData"")
+            .then(response => response.json())
+            .then(data => {
+              const userDetails = document.getElementById("user-details");
+              userDetails.innerHTML = `
+                <h1>User Details</h1>
+                ${data.map(user => `
+                  <div>
+                    <p>Name: ${user.name}</p>
+                    <p>Email: ${user.email}</p>
+                    
+                    <button class="delete-button" data-id="${user._id}">Delete</button>
+                  </div>
+                `).join('')}
+              `;
+              addDeleteEventListeners();
+            })
+            .catch(error => console.error(error));
+        };
+
+        const deleteUserData = (id) => {
+          axios.get(`https://crudcrud.com/api/ca7ca9006bf1486b877ec3b5fb415327/employeeData}`, {
+            method: 'DELETE'
+          })
+          .then(() => {
+            const deletedUser = document.querySelector(`button[data-id="${id}"]`).parentNode;
+            deletedUser.parentNode.removeChild(deletedUser);
+          })
+          .catch(error => console.error(error));
+        };
+
+        const addDeleteEventListeners = () => {
+          const deleteButtons = document.querySelectorAll('.delete-button');
+          deleteButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+              const id = event.target.getAttribute('data-id');
+              deleteUserData(id);
+            });
+          });
+        };
+
+        getUserDetails();
+      });
+    </script>
+  </body>
+</html>
