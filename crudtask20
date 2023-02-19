@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Display, Edit and Delete User Details</title>
+  </head>
+  <body>
+    <div id="user-details"></div>
+
+    <form id="registration-form">
+      <h1>Edit User Details</h1>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email">
+
+       
+
+      <input type="hidden" id="user-id" name="user-id" value="">
+      <button type="submit">Update User</button>
+    </form>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const getUserDetails = () => {
+          axios.put("https://crudcrud.com/api/ca7ca9006bf1486b877ec3b5fb415327/employeeData")
+            .then(response => response.json())
+            .then(data => {
+              const userDetails = document.getElementById("user-details");
+              userDetails.innerHTML = `
+                <h1>User Details</h1>
+                ${data.map(user => `
+                  <div>
+                    <p>Name: ${user.name}</p>
+                    <p>Email: ${user.email}</p>
+                    
+                    <button class="delete-button" data-id="${user._id}">Delete</button>
+                    <button class="edit-button" data-id="${user._id}">Edit</button>
+                  </div>
+                `).join('')}
+              `;
+              addDeleteEventListeners();
+              addEditEventListeners();
+            })
+            .catch(error => console.error(error));
+        };
+
+        const deleteUserData = (id) => {
+          axios.delete(`https://crudcrud.com/api/ca7ca9006bf1486b877ec3b5fb415327/employeeData`, {
+            method: 'DELETE'
+          })
+          .then(() => {
+            const deletedUser = document.querySelector(`button[data-id="${id}"]`).parentNode;
+            deletedUser.parentNode.removeChild(deletedUser);
+          })
+          .catch(error => console.error(error));
+        };
+
+        const editUserData = (id, name, email) => {
+          axios.put(`https://crudcrud.com/api/ca7ca9006bf1486b877ec3b5fb415327/employeeData`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email })
+          })
+          .then(() => {
+            getUserDetails();
+            clearForm();
+          })
+          .catch(error => console.error(error));
+        };
+
+        const addDeleteEventListeners = () => {
+          const deleteButtons = document.querySelectorAll('.delete-button');
+          deleteButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+              const id = event.target.getAttribute('data-id');
+              deleteUserData(id);
+            });
+          });
+        };
+
+        const addEditEventListeners = () => {
+          const editButtons = document.querySelectorAll('.edit-button');
+          editButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+              const id = event.target.getAttribute('data-id');
+              const name = event.target.previousElementSibling.previousElementSibling.textContent.split(':')[1].trim();
+              const email = event.target.previousElementSibling.textContent.split(':')[1].trim();
+              
